@@ -9,7 +9,6 @@ namespace PDF2PNG.Controllers
     [Route("/")]
     public class HealthController : Controller
     {
-        // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
         {
