@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gfs-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: k8s.rifletcher.com
+    http:
+      paths:
+      - path: /pdfconverter/*
+        backend:
+          serviceName: pdf-converter-service
+          servicePort: http
+      - path: /pdfconverter
+        backend:
+          serviceName: pdf-converter-service
+          servicePort: http          

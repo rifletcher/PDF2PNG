@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: pdf-converter-service
+spec:
+  selector:
+    app: app
+    function: pdf-converter 
+  type: NodePort
+  ports:
+    - name: http
+      protocol: TCP
+      port: 5050
+      targetPort: 5050

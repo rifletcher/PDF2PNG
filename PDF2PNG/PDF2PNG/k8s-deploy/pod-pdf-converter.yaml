@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pdf-converter-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: app
+        function: pdf-converter
+        tier: frontend
+    spec:
+      containers:
+        - name: pdf-converter
+          image: rifletcher/pdf-converter:v1.0.0
+          ports:
+            - name: http
+              containerPort: 5050
+          env:
+            - name: NODE_ENV
+              value: production
